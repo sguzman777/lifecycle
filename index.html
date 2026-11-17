@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website settings and linked files -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Browser tab title -->
+  <title>The Life cycle of a Monument</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+  <!-- Connects the CSS styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Website title and project overview -->
+  <header>
+
+    <!-- Main website title -->
+    <h1>Who Put You Here?</h1>
+
+    <!-- Website subtitle -->
+    <p class="subtitle">
+      Exploring the Life Cycle of Monuments and Public Memory
+    </p>
+
+    <p class="title-explanation">
+      I chose the title <strong>“Who Put You Here?”</strong>
+      because I believe it is one of the many questions that
+      might cross someone's mind when encountering a monument in a public space, especially one they did not know
+      existed. The question itself can carry different meanings depending on the emotions and intentions behind it. It
+      can be asked negatively, expressing disagreement with who or what the monument represents, or questioning why it
+      was created or placed in that particular location. On the other hand, it can also be asked positively, expressing
+      curiosity, appreciation, or even excitement at unexpectedly discovering a monument that represents something
+      meaningful to the viewer. Although the question may come across as provocative, that is part of the reason I chose
+      it.
+      <strong>I want to highlight the emotions and immediate reactions people experience when encountering
+        monuments</strong>,
+
+      even before knowing their history or purpose. The title encourages viewers to think beyond
+      the monument's physical presence and question who made the decision to place it there, why it exists, and what its
+      presence means to different people.
+    </p>
+
+    <!-- Introduces the project to visitors -->
+    <section class="project-overview">
+      <h2>Project Overview</h2>
+
+      <!-- project overview paragraphs-->
+
+      <p>
+        The Life Cycle explores the life cycle of 10 monuments and memorials,
+        examining how societies decide what they want to remember, celebrate,
+        or forget publicly. Through this project, I investigate the history
+        and purpose behind each monument, including who proposed it, who
+        funded it, why it was built, and how the public has responded to it
+        over time.
+      </p>
+
+      <p>
+        The project examines five categories: Official vs. DIY, Removed vs.
+        Reinterpreted, Celebrated vs. Controversial, Destroyed vs. Still
+        present, and Remembered vs. Forgotten. Each category features two
+        contrasting monuments, although some may fall into more than one
+        category. By exploring these differences, the project considers how
+        monuments created through official channels compare with those
+        created by communities, and how their meanings and public
+        perceptions change over time.
+      </p>
+
+      <p>
+        Through an interactive diagram, visitors can select a monument
+        and explore the different phases of its life cycle, from its
+        proposal and funding to its celebration, controversy, removal,
+        or reinterpretation. Rather than following a linear narrative,
+        visitors can choose which phases to explore and compare how each
+        has shaped a monument's public meaning and significance.
+      </p>
+
+      <p>
+        Ultimately, The Life Cycle encourages visitors to consider who
+        has the power to decide what should be memorialized in public
+        spaces and how those decisions reflect the values of society.
+      </p>
+
+      <!-- Life cycle chart below the project overview -->
+      <div class="lifecycle-chart">
+        <img src="image/lifecycle-chart.jpeg"
+          alt="Circular infographic illustrating the ten phases of a monument's life cycle, from proposed and funded to reinterpreted and forgotten.">
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <!-- line break-->
+    <hr class="section-divider">
+
+    <!-- Introduces the interactive monument explorer -->
+    <h2 class="explorer-title">
+      Choose a Monument and Explore Its Phases
+    </h2>
+
+    <!-- Dropdown menu and Clear All button -->
+    <div class="controls">
+
+      <!-- Selects which monument to explore -->
+      <label for="monument-select">Choose a monument:</label>
+
+      <select id="monument-select">
+        <option value="sims">J. Marion Sims Monument</option>
+        <option value="roosevelt">Theodore Roosevelt Monument</option>
+        <option value="columbus">Christopher Columbus Monument</option>
+        <option value="marsha">Love Letter to Marsha P. Johnson</option>
+      </select>
+
+      <label for="phase-select">Choose a phase:</label>
+
+      <!-- List of monument life cycle phases -->
+      <select id="phase-select">
+        <option value="">--Select a phase--</option>
+        <option value="Proposed ">Proposed </option>
+        <option value="Funded ">Funded </option>
+        <option value="Created ">Created </option>
+        <option value="Celebrated ">Celebrated </option>
+        <option value="Contested ">Contested </option>
+        <option value="Renamed ">Renamed </option>
+        <option value="Removed ">Removed </option>
+        <option value="Destroyed ">Destroyed </option>
+        <option value="Reinterpreted ">Reinterpreted </option>
+        <option value="Forgotten ">Forgotten </option>
+      </select>
+
+      <!-- Removes all selected phases -->
+      <button id="clear-all">Clear All</button>
+    </div>
+
+
+    <!-- Main diagram containing arrows, image, and cards -->
+    <div class="diagram">
+
+      <!-- Drawing area for connecting arrows -->
+      <svg class="arrows" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+
+        <!-- Defines the arrowhead design -->
+        <defs>
+          <marker id="arrowhead" viewBox="0 0 12 12" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"
+            markerUnits="userSpaceOnUse">
+
+            <path d="M1,1 L10,6 L1,11" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </marker>
+        </defs>
+      </svg>
+
+      <!-- Central monument photograph -->
+      <div class="monument">
+        <img src="image/sims.jpeg" alt="J. Marion Sims monument">
+      </div>
+
+      <!-- JavaScript adds the selected phase cards here -->
+      <div id="phase-cards"></div>
+
+    </div>
+    <!-- End of monument diagram -->
+
+    <!-- Sources used to research the monuments -->
+    <section class="sources-section">
+
+      <h2>Sources & References</h2>
+
+      <p>
+        The following sources were used to research the histories,
+        public responses, and changing meanings of the monuments
+        featured in this project.
+      </p>
+
+      <!-- Displays the name of the selected monument -->
+      <h3 id="sources-monument-title"></h3>
+
+      <!-- Displays the sources for that monument -->
+      <ul class="sources-list" id="sources-list"></ul>
+
+    </section>
+  </main>
+
+  <!-- Connects JavaScript for interactive features -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

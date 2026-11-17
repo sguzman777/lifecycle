@@ -1,0 +1,300 @@
+/* Overall website appearance */
+body {
+  background-color: #fff8eb;
+  color: black;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+/* Spacing around the website header */
+header {
+  padding: 30px 15px 0;
+}
+
+/* Keeps the Project Overview text away from the screen edges */
+.project-overview p {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+/* Styles the paragraph explaining "Who Put You Here?" */
+.title-explanation{
+  max-width: 1100px;
+  margin: 24px auto 35px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Main title font and size */
+h1 {
+  font-family: 'Fredericka the Great', serif;
+  font-size: 42px;
+}
+
+/* Position of the dropdown menu and button */
+.controls {
+  text-align: center;
+  margin: 30px auto;
+}
+
+/* Size and spacing of the dropdown and button */
+.controls select,
+.controls button {
+  padding: 10px 15px;
+  margin: 8px;
+  font-size: 15px;
+}
+
+/* Size and positioning of the mind map */
+.diagram {
+  position: relative;
+  width: min(95vw, 1200px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  margin: 30px auto;
+}
+
+/* Size and display of the monument photograph */
+.monument img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Shrinks ONLY the Christopher Columbus Monument */
+.diagram:has(img[src="image/Columbus.jpeg"]) .monument img {
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Position and visibility of connecting arrows */
+.arrows {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Appearance, size, and position of phase cards */
+.phase-card {
+  position: absolute;
+
+  width: 25%;
+  height: 180px;
+  padding: 15px;
+  box-sizing: border-box;
+
+  background-color: #fff9ef;
+  border: 2px solid #030303;
+  border-radius: 0;
+
+  color: black;
+  text-align: left;
+  font-size: 14px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* Spacing below each phase card heading */
+.phase-card h3 {
+  margin: 0 0 8px;
+}
+
+/* Text formatting inside phase cards */
+.phase-card p {
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.6;
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Animation that makes phase cards appear */
+@keyframes cardPop {
+  from {
+    opacity: 0;
+    scale: 0.85;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* Applies the pop-up animation to phase cards */
+.phase-card {
+  border-radius: 0;
+  animation: cardPop 0.25s ease-out;
+}
+
+/* Centers the life cycle chart below the project overview */
+.lifecycle-chart {
+  width: 100%;
+  max-width: 850px;
+  margin: 35px auto;
+  text-align: center;
+}
+
+/* Makes the chart adjust to different screen sizes */
+.lifecycle-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Horizontal line separating the two sections */
+.section-divider {
+  width: 80%;
+  max-width: 850px;
+  border: none;
+  border-top: 2px solid #020202;
+  margin: 45px auto 30px;
+}
+
+/* Heading above the monument dropdown menus */
+.explorer-title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto 15px;
+  padding: 0 15px;
+}
+
+/* Sources section underneath the monument diagram */
+.sources-section {
+  width: 85%;
+  max-width: 850px;
+  margin: 30px auto 60px;
+  text-align: left;
+}
+
+/* Centers the sources heading */
+.sources-section h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Description above the references */
+.sources-section p {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Formats the list of sources */
+.sources-list {
+  padding-left: 25px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* Makes source links match the website */
+.sources-list a {
+  color: #020202;
+  text-decoration: underline;
+}
+
+/* Changes the link color when hovered over */
+.sources-list a:hover {
+  color: #cc171b;
+}
+
+/* Name of the monument above its sources */
+#sources-monument-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* Keeps the sources visible below the selected monument */
+.sources-section {
+  position: relative;
+  z-index: 10;
+  background-color: #fff8eb;
+  min-height: 250px;
+  padding: 30px 20px;
+}
+
+/* Keeps the divider and sources closer to the monument */
+.diagram+.section-divider {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Reduces extra space above the sources */
+.sources-section {
+  margin-top: 0;
+}
+
+/* Phase card colors matching the Life Cycle chart */
+
+/* 1. Proposed — soft peach */
+.phase-card.proposed {
+  background-color: #F7D6A8;
+}
+
+/* 2. Funded — golden yellow */
+.phase-card.funded {
+  background-color: #F6C36C;
+}
+
+/* 3. Created — light orange */
+.phase-card.created {
+  background-color: #F6B383;
+}
+
+/* 4. Celebrated — coral */
+.phase-card.celebrated {
+  background-color: #F39B7C;
+}
+
+/* 5. Contested — dusty pink */
+.phase-card.contested {
+  background-color: #E9A5AA;
+}
+
+/* 6. Renamed — lavender */
+.phase-card.renamed {
+  background-color: #D8BDDD;
+}
+
+/* 7. Removed — soft blue */
+.phase-card.removed {
+  background-color: #A8CDD9;
+}
+
+/* 8. Destroyed — pale mint */
+.phase-card.destroyed {
+  background-color: #B9D8C8;
+}
+
+/* 9. Reinterpreted — light green */
+.phase-card.reinterpreted {
+  background-color: #D5E3A6;
+}
+
+/* 10. Forgotten — sage green */
+.phase-card.forgotten {
+  background-color: #B9C3B1;
+}
