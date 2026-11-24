@@ -915,17 +915,37 @@ function renderDiagram() {
 /* Connects the dropdown menu to JavaScript */
 const phaseSelect = document.getElementById("phase-select");
 
+// Adds check marks next to phases that have already been opened
+function updatePhaseCheckmarks() {
+  Array.from(phaseSelect.options).forEach(option => {
+    const phase = option.value.trim().toLowerCase();
+
+    if (phase === "") return;
+
+    if (!option.dataset.originalLabel) {
+      option.dataset.originalLabel = option.textContent.trim();
+    }
+
+    const label = visible.has(phase)
+      ? "✓ " + option.dataset.originalLabel
+      : option.dataset.originalLabel;
+
+    option.textContent = label;
+    option.label = label;
+  });
+}
+
 
 /* Displays the selected phase */
 function showSelectedPhase() {
   const selectedPhase = phaseSelect.value.trim().toLowerCase();
 
-  // Adds the selected phase to the diagram
   if (selectedPhase !== "") {
     visible.add(selectedPhase);
   }
 
   renderDiagram();
+  updatePhaseCheckmarks();
 }
 
 /* Updates the diagram when the dropdown changes */
@@ -937,6 +957,7 @@ clearButton.addEventListener("click", () => {
   visible.clear();
   phaseSelect.value = "";
   renderDiagram();
+  updatePhaseCheckmarks();
 });
 
 /* Changes the monument and clears previous phase cards */
@@ -953,6 +974,8 @@ function changeMonument() {
 
   // Updates the diagram
   renderDiagram();
+
+  updatePhaseCheckmarks();
 
   // Updates the sources for the selected monument
   updateSources();
